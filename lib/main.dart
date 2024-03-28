@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/view/cadastrar_lista.dart';
+import 'package:flutter_application_1/view/cadastro.dart';
+import 'package:flutter_application_1/view/esquecer_senha.dart';
+import 'package:flutter_application_1/view/home.dart';
+import 'package:flutter_application_1/view/login.dart';
+import 'package:flutter_application_1/view/sobre.dart';
+
+
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +17,22 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello Novo mundo!'),
-        ),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Navegação',
+
+      //Rotas de navegação
+      //
+      initialRoute: 'login',
+      routes: {
+        'login':(context) => TelaLoginView(),
+        'sobre':(context) => TelaSobreView(),
+        'home':(context) => TelaHomeView(),
+        'esq_senha':(context) => TelaEsquecerSenhaView(),
+        'cadastro':(context) => TelaCadastroView(),
+        'cad_lista':(context) => TelaCadastrarListaView(),
+      },
+      
     );
   }
 }
