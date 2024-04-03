@@ -15,6 +15,111 @@ class _TelaLoginViewState extends State<TelaLoginView> {
   var emailLogin = TextEditingController();
   var senhaLogin = TextEditingController();
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Login',
+          style: TextStyle(
+            color: Colors.blue,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Form(
+          key: formKey,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 100,
+                  child: Image.asset(
+                    'lib/imagens/supermarket.jpg',
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                TextFormField(
+                  controller: emailLogin,
+                  decoration: const InputDecoration(
+                    labelText: 'Email',
+                    border: OutlineInputBorder(),
+                    prefix: Icon(Icons.email),
+                  ),
+                ),
+                //
+                //Validação
+                //
+                const SizedBox(height: 20),
+                TextFormField(
+                  controller: senhaLogin,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    labelText: 'Senha',
+                    border: OutlineInputBorder(),
+                    prefix: Icon(Icons.password_sharp),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Ação para o botão de login
+                    var email = emailLogin.text;
+                    var senha = senhaLogin.text;
+
+                    var nome =
+                        'Arthur'; // Exemplo de dado para enviar para próxima tela
+                    if (validarCampos(email, senha)) {
+                      Navigator.pushNamed(
+                        context,
+                        'home',
+                        arguments: nome,
+                      );
+                    }
+                    // Navegação para a próxima tela
+                  },
+                  child: const Text('Entrar'),
+                ),
+                const SizedBox(height: 10),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      'esquecer_senha',
+                    );// Ação para o botão de recuperar senha
+                  },
+                  child: const Text('Recuperar Senha'),
+                ),
+                const SizedBox(height: 10),
+                TextButton(
+                  onPressed: () {
+                    // Navegação recuperar senha
+                    Navigator.pushNamed(
+                      context,
+                      'sobre',
+                    );
+                  },
+                  child: const Text('Sobre'),
+                ),
+                const SizedBox(height: 10),
+                TextButton(
+                  onPressed: () {
+                    // Ação para o botão de cadastrar
+                  },
+                  child: const Text('Cadastrar'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   bool validarCampos(String email, String senha) {
     // Verifica se o campo de e-mail está vazio
     if (email.isEmpty) {
@@ -53,100 +158,5 @@ class _TelaLoginViewState extends State<TelaLoginView> {
 
     // Se passou por todas as verificações, retorna verdadeiro
     return true;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
-      body: SingleChildScrollView(
-        child: Form(
-          key: formKey,
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 100,
-                  child: Image.asset(
-                    'lib/imagens/supermarket.jpg',
-                    fit: BoxFit.contain,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                TextFormField(
-                  controller: emailLogin,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(),
-                    prefix: Icon(Icons.email),
-                  ),
-                ),
-                //
-                //Validação
-                //
-                const SizedBox(height: 20),
-                TextFormField(
-                  controller: senhaLogin,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Senha',
-                    border: OutlineInputBorder(),
-                    prefix: Icon(Icons.password),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    // Ação para o botão de login
-                      var email = emailLogin.text;
-                      var senha = senhaLogin.text;
-
-                    var nome = 'Roger'; // Exemplo de dado para enviar para próxima tela
-                    if (validarCampos(email, senha)) {
-                      Navigator.pushNamed(
-                        context,
-                        'home',
-                        arguments: nome,
-                      );
-                    }
-                    // Navegação para a próxima tela
-                  },
-                  child: const Text('Entrar'),
-                ),
-                const SizedBox(height: 10),
-                TextButton(
-                  onPressed: () {
-                    // Ação para o botão de recuperar senha
-                  },
-                  child: const Text('Recuperar Senha'),
-                ),
-                const SizedBox(height: 10),
-                TextButton(
-                  onPressed: () {
-                    // Navegação recuperar senha
-                    Navigator.pushNamed(
-                      context,
-                      'recuperar_senha',
-                    );
-                  },
-                  child: const Text('Sobre'),
-                ),
-                const SizedBox(height: 10),
-                TextButton(
-                  onPressed: () {
-                    // Ação para o botão de cadastrar
-                  },
-                  child: const Text('Cadastrar'),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
   }
 }

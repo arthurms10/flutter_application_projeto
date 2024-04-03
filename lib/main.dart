@@ -35,7 +35,7 @@ class MainApp extends StatelessWidget {
         'login':(context) => TelaLoginView(),
         'sobre':(context) => TelaSobreView(),
         'home':(context) => TelaHomeView(),
-        'esq_senha':(context) => TelaEsquecerSenhaView(),
+        'esquecer_senha':(context) => TelaEsquecerSenhaView(),
         'cadastro':(context) => TelaCadastroView(),
         'cad_lista':(context) => TelaCadastrarListaView(),
       },

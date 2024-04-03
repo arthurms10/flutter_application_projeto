@@ -20,22 +20,7 @@ class _TelaHomeViewState extends State<TelaHomeView> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            OutlinedButton(
-              onPressed: () {
-                //
-                // Navegação
-                //
-
-                var nome = 'João da Silva';
-
-                Navigator.pushNamed(
-                  context,
-                  'cadastro',
-                  arguments: nome,
-                );
-              },
-              child: Text('abrir'),
-            ),
+            
           ],
         ),
       ),
