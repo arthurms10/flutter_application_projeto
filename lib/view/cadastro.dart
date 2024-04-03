@@ -14,7 +14,7 @@ class _TelaCadastroViewState extends State<TelaCadastroView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela Home'),
+        title: Text('Tela Cadastro'),
       ),
       body: Center(
         child: Row(

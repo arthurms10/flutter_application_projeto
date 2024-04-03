@@ -14,7 +14,7 @@ class _TelaSobreViewState extends State<TelaSobreView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela Home'),
+        title: Text('Tela Sobre'),
       ),
       body: Center(
         child: Row(

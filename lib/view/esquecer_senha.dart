@@ -14,7 +14,7 @@ class _TelaEsquecerSenhaViewState extends State<TelaEsquecerSenhaView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela Home'),
+        title: Text('Tela Esqueceu a Senha'),
       ),
       body: Center(
         child: Row(

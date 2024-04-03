@@ -14,7 +14,7 @@ class _TelaCadastrarListaViewState extends State<TelaCadastrarListaView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela Home'),
+        title: Text('Tela Cadastrar Lista'),
       ),
       body: Center(
         child: Row(
