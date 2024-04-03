@@ -30,7 +30,7 @@ class _TelaCadastroViewState extends State<TelaCadastroView> {
 
                 Navigator.pushNamed(
                   context,
-                  'cadastro',
+                  'login',
                   arguments: nome,
                 );
               },

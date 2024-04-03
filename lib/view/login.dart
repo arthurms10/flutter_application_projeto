@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 
 class TelaLoginView extends StatefulWidget {
@@ -10,33 +8,143 @@ class TelaLoginView extends StatefulWidget {
 }
 
 class _TelaLoginViewState extends State<TelaLoginView> {
+  // Atributos
+
+  //Chave identificado do Form
+  var formKey = GlobalKey<FormState>();
+  var emailLogin = TextEditingController();
+  var senhaLogin = TextEditingController();
+
+  bool validarCampos(String email, String senha) {
+    // Verifica se o campo de e-mail está vazio
+    if (email.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('E-mail não pode estar vazio')),
+      );
+      return false;
+    }
+
+    // Verifica se o campo de e-mail possui um formato válido
+    final emailValido =
+        RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email);
+    if (!emailValido) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('E-mail inválido')),
+      );
+      return false;
+    }
+
+    // Verifica se o campo de senha está vazio
+    if (senha.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Senha não pode estar vazia')),
+      );
+      return false;
+    }
+
+    // Verifica se a senha tem pelo menos 6 caracteres
+    if (senha.length < 6) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('A senha deve ter pelo menos 6 caracteres')),
+      );
+      return false;
+    }
+
+    // Se passou por todas as verificações, retorna verdadeiro
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela Login'),
+        title: const Text('Login'),
       ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            OutlinedButton(
-              onPressed: () {
+      body: SingleChildScrollView(
+        child: Form(
+          key: formKey,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 100,
+                  child: Image.asset(
+                    'lib/imagens/supermarket.jpg',
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                TextFormField(
+                  controller: emailLogin,
+                  decoration: const InputDecoration(
+                    labelText: 'Email',
+                    border: OutlineInputBorder(),
+                    prefix: Icon(Icons.email),
+                  ),
+                ),
                 //
-                // Navegação
+                //Validação
                 //
+                const SizedBox(height: 20),
+                TextFormField(
+                  controller: senhaLogin,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    labelText: 'Senha',
+                    border: OutlineInputBorder(),
+                    prefix: Icon(Icons.password),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Ação para o botão de login
+                      var email = emailLogin.text;
+                      var senha = senhaLogin.text;
 
-                var nome = 'João da Silva';
-
-                Navigator.pushNamed(
-                  context,
-                  'home',
-                  arguments: nome,
-                );
-              },
-              child: Text('abrir'),
+                    var nome = 'Roger'; // Exemplo de dado para enviar para próxima tela
+                    if (validarCampos(email, senha)) {
+                      Navigator.pushNamed(
+                        context,
+                        'home',
+                        arguments: nome,
+                      );
+                    }
+                    // Navegação para a próxima tela
+                  },
+                  child: const Text('Entrar'),
+                ),
+                const SizedBox(height: 10),
+                TextButton(
+                  onPressed: () {
+                    // Ação para o botão de recuperar senha
+                  },
+                  child: const Text('Recuperar Senha'),
+                ),
+                const SizedBox(height: 10),
+                TextButton(
+                  onPressed: () {
+                    // Navegação recuperar senha
+                    Navigator.pushNamed(
+                      context,
+                      'recuperar_senha',
+                    );
+                  },
+                  child: const Text('Sobre'),
+                ),
+                const SizedBox(height: 10),
+                TextButton(
+                  onPressed: () {
+                    // Ação para o botão de cadastrar
+                  },
+                  child: const Text('Cadastrar'),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
