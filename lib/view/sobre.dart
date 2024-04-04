@@ -17,24 +17,40 @@ class _TelaSobreViewState extends State<TelaSobreView> {
         title: Text('Tela Sobre'),
       ),
       body: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            OutlinedButton(
-              onPressed: () {
-                //
-                // Navegação
-                //
-
-                var nome = 'João da Silva';
-
-                Navigator.pushNamed(
-                  context,
-                  'cadastro',
-                  arguments: nome,
-                );
-              },
-              child: Text('abrir'),
+            Text(
+              'Bem-vindo ao nosso aplicativo de lista de compras!',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Objetivos do projeto:',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              '- Facilitar a organização das compras do dia a dia;',
+              style: TextStyle(fontSize: 14),
+            ),
+            Text(
+              '- Permitir a criação de listas personalizadas;',
+              style: TextStyle(fontSize: 14),
+            ),
+            Text(
+              '- Oferecer uma interface intuitiva e fácil de usar;',
+              style: TextStyle(fontSize: 14),
+            ),
+            SizedBox(height: 20),
+            Text('Sobre o desenvolvedor:',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)), 
+            Text('Arthur Santos é estudante do curso de Análise e Desenvolvimento'
+               'de Sistemas da FATEC de Ribeirão Preto',
+              style: TextStyle(fontSize: 14),
+            ),
+            SizedBox(
+              height: 20,
             ),
           ],
         ),

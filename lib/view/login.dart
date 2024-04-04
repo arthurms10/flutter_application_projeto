@@ -109,6 +109,8 @@ class _TelaLoginViewState extends State<TelaLoginView> {
                 TextButton(
                   onPressed: () {
                     // Ação para o botão de cadastrar
+                    Navigator.pushNamed(context,
+                     'cadastro');
                   },
                   child: const Text('Cadastrar'),
                 ),
