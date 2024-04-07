@@ -18,8 +18,12 @@ class _TelaSobreViewState extends State<TelaSobreView> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+                    'lib/imagens/app.png',
+                    fit: BoxFit.contain,
+                  ),
+            SizedBox(height: 20),
             Text(
               'Bem-vindo ao nosso aplicativo de lista de compras!',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),

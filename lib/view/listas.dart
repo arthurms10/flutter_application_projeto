@@ -1,56 +1,54 @@
 import 'package:flutter/material.dart';
 
-class TelaHomeView extends StatefulWidget {
-  const TelaHomeView({Key? key}) : super(key: key);
+class TelaListasView extends StatefulWidget {
+  const TelaListasView({Key? key}) : super(key: key);
 
   @override
-  State<TelaHomeView> createState() => _TelaHomeViewState();
+  State<TelaListasView> createState() => _TelaListasViewState();
 }
 
-class _TelaHomeViewState extends State<TelaHomeView> {
+class _TelaListasViewState extends State<TelaListasView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela Home'),
+        title: Text('Listas de Compras'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, 'home');
+            },
+            icon: Icon(Icons.home),
+          ),
+        ],
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-                  'lib/imagens/imghome.jpg',
-                  fit: BoxFit.contain,
-                ),
-            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  'cadastrar_lista',
+                  'itens',
                 );
               },
-              child: Text('Criar Nova Lista de Compras'),
+              child: Text('Acessar itens'),
             ),
             SizedBox(height: 20), // Espaçamento entre os botões
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  'listas',
+                  '',
                 );
               },
-              child: Text('Acessar Listas de Compras'),
+              child: Text('Editar Lista'),
             ),
             SizedBox(height: 20), // Espaçamento entre os botões
             ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  'login',
-                );
-              },
-              child: Text('Sair da conta'),
+              onPressed: () {},
+              child: Text('Excluir Lista'),
             ),
           ],
         ),

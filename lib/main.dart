@@ -1,4 +1,3 @@
-import 'dart:js';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/view/cadastrar_lista.dart';
@@ -8,6 +7,10 @@ import 'package:flutter_application_1/view/home.dart';
 import 'package:flutter_application_1/view/login.dart';
 import 'package:flutter_application_1/view/sobre.dart';
 import 'package:device_preview/device_preview.dart';
+
+import 'view/cadastrar_itens.dart';
+import 'view/itens.dart';
+import 'view/listas.dart';
 
 
 void main() {
@@ -36,7 +39,10 @@ class MainApp extends StatelessWidget {
         'home':(context) => TelaHomeView(),
         'esquecer_senha':(context) => TelaEsquecerSenhaView(),
         'cadastro':(context) => TelaCadastroView(),
-        'cad_lista':(context) => TelaCadastrarListaView(),
+        'cadastrar_lista':(context) => TelaCadastrarListaView(),
+        'cadastrar_itens':(context) => TelaCadastrarItensView(),
+        'listas':(context) => TelaListasView(),
+        'itens':(context) => TelaItensView(),
       },
     );
   }
