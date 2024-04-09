@@ -36,9 +36,9 @@ class _TelaLoginViewState extends State<TelaLoginView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 100,
+                  height: 200,
                   child: Image.asset(
-                    'lib/imagens/supermarket.jpg',
+                    'lib/imagens/superlogo.png',
                     fit: BoxFit.contain,
                   ),
                 ),
