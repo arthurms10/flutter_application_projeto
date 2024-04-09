@@ -15,7 +15,12 @@ class _TelaCadastrarListaViewState extends State<TelaCadastrarListaView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela Cadastrar Lista'),
+        title: Text(
+          'Tela Cadastrar Lista',
+          style: TextStyle(
+            color: Colors.blue,
+          ),
+        ),
         // Adicionando um botão de retorno na AppBar
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -45,10 +50,7 @@ class _TelaCadastrarListaViewState extends State<TelaCadastrarListaView> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  'cadastrar_itens'
-                );
+                Navigator.pushNamed(context, 'cadastrar_itens');
               },
               child: Text('Cadastrar'),
             ),

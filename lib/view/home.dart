@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class TelaHomeView extends StatefulWidget {
@@ -12,16 +14,21 @@ class _TelaHomeViewState extends State<TelaHomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela Home'),
+        title: Text(
+          'Tela Home',
+          style: TextStyle(
+            color: Colors.blue,
+          ),
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-                  'lib/imagens/imghome.jpg',
-                  fit: BoxFit.contain,
-                ),
+              'lib/imagens/imghome.jpg',
+              fit: BoxFit.contain,
+            ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class Item {
@@ -16,38 +18,72 @@ class TelaItensView extends StatefulWidget {
 }
 
 class _TelaItensViewState extends State<TelaItensView> {
+  bool _mostrarCampoPesquisa = false;
+  late TextEditingController _controller;
   List<Item> itens = [
     Item(nome: 'Maçã', quantidade: 5),
     Item(nome: 'Banana', quantidade: 10),
     Item(nome: 'Pão', quantidade: 2),
     Item(nome: 'Margarina', quantidade: 1),
   ];
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Itens da Lista (nome)'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, 'editarItens');
-            },
-            icon: Icon(Icons.edit),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.pushReplacementNamed(context, 'listas');
-            },
-            icon: Icon(Icons.save),
-          ),
-        ],
-      ),
+          title: _mostrarCampoPesquisa
+              ? TextField(
+                  controller: _controller,
+                  decoration: InputDecoration(
+                    hintText: 'Pesquisar...',
+                    border: InputBorder.none,
+                  ),
+                  style: TextStyle(color: Colors.black),
+                )
+              : Text('Itens - Lista (nome)',
+                  style: TextStyle(
+                    color: Colors.blue,
+                  )
+                ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  _mostrarCampoPesquisa = !_mostrarCampoPesquisa;
+                });
+              },
+              icon: Icon(_mostrarCampoPesquisa ? Icons.close : Icons.search),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'editar_itens');
+              },
+              icon: Icon(Icons.edit),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, 'listas');
+              },
+              icon: Icon(Icons.save),
+            ),
+          ]),
       body: ListView.builder(
         itemCount: itens.length,
         itemBuilder: (context, index) {
           return CheckboxListTile(
-            title: Text('${itens[index].nome} - Quantidade: ${itens[index].quantidade}'),
+            title: Text(
+                '${itens[index].nome} - Quantidade: ${itens[index].quantidade}'),
             value: itens[index].comprado,
             onChanged: (bool? value) {
               setState(() {

@@ -14,15 +14,20 @@ class _TelaSobreViewState extends State<TelaSobreView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela Sobre'),
+        title: Text(
+          'Tela Sobre',
+          style: TextStyle(
+            color: Colors.blue,
+          ),
+        ),
       ),
       body: Center(
         child: Column(
           children: [
             Image.asset(
-                    'lib/imagens/app.png',
-                    fit: BoxFit.contain,
-                  ),
+              'lib/imagens/app.png',
+              fit: BoxFit.contain,
+            ),
             SizedBox(height: 20),
             Text(
               'Bem-vindo ao nosso aplicativo de lista de compras!',
@@ -48,9 +53,10 @@ class _TelaSobreViewState extends State<TelaSobreView> {
             ),
             SizedBox(height: 20),
             Text('Sobre o desenvolvedor:',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)), 
-            Text('Arthur Santos é estudante do curso de Análise e Desenvolvimento'
-               'de Sistemas da FATEC de Ribeirão Preto',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            Text(
+              'Arthur Santos é estudante do curso de Análise e Desenvolvimento'
+              'de Sistemas da FATEC de Ribeirão Preto',
               style: TextStyle(fontSize: 14),
             ),
             SizedBox(

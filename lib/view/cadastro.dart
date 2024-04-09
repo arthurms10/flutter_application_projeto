@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class TelaCadastroView extends StatefulWidget {
@@ -14,7 +16,7 @@ class _TelaCadastroViewState extends State<TelaCadastroView> {
       TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  
+
   void _validateForm() {
     String email = _emailController.text.trim();
     String password = _passwordController.text.trim();
@@ -30,7 +32,7 @@ class _TelaCadastroViewState extends State<TelaCadastroView> {
       _showSnackBar('As senhas não coincidem.');
       return;
     }
-    if(email != emailValido){
+    if (email != emailValido) {
       _showSnackBar('O E-mail não possui o formato correto.');
     }
     // Aqui você pode adicionar lógica para processar os dados do formulário, como realizar o cadastro.
@@ -42,7 +44,8 @@ class _TelaCadastroViewState extends State<TelaCadastroView> {
   }
 
   void _showSnackBar(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -50,14 +53,20 @@ class _TelaCadastroViewState extends State<TelaCadastroView> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text('Tela Cadastro'),
+        title: Text(
+          'Tela Cadastro',
+          style: TextStyle(
+            color: Colors.blue,
+          ),
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              margin: EdgeInsets.only(bottom: 20.0), // Defina a margem inferior aqui
+              margin: EdgeInsets.only(
+                  bottom: 20.0), // Defina a margem inferior aqui
               child: SizedBox(
                 height: 80,
                 child: Image.asset(

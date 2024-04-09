@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class TelaCadastrarItensView extends StatefulWidget {
@@ -17,7 +19,12 @@ class _TelaCadastrarItensViewState extends State<TelaCadastrarItensView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Adicionar Itens'),
+        title: Text(
+          'Adicionar Itens',
+          style: TextStyle(
+            color: Colors.blue,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -81,7 +88,8 @@ class _TelaCadastrarItensViewState extends State<TelaCadastrarItensView> {
                 itemCount: itens.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text('${itens[index].nome} - ${itens[index].quantidade}'),
+                    title: Text(
+                        '${itens[index].nome} - ${itens[index].quantidade}'),
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -137,7 +145,8 @@ class _TelaCadastrarItensViewState extends State<TelaCadastrarItensView> {
                 ),
               ),
               TextField(
-                controller: TextEditingController(text: itens[index].quantidade.toString()),
+                controller: TextEditingController(
+                    text: itens[index].quantidade.toString()),
                 onChanged: (value) {
                   itens[index].quantidade = int.tryParse(value) ?? 0;
                 },

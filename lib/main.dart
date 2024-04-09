@@ -9,6 +9,8 @@ import 'package:flutter_application_1/view/sobre.dart';
 import 'package:device_preview/device_preview.dart';
 
 import 'view/cadastrar_itens.dart';
+import 'view/editar_itens.dart';
+import 'view/editar_lista.dart';
 import 'view/itens.dart';
 import 'view/listas.dart';
 
@@ -43,6 +45,8 @@ class MainApp extends StatelessWidget {
         'cadastrar_itens':(context) => TelaCadastrarItensView(),
         'listas':(context) => TelaListasView(),
         'itens':(context) => TelaItensView(),
+        'editar_lista':(context) => TelaEditarListaView(),
+        'editar_itens':(context) => TelaEditarItensView(),
       },
     );
   }

@@ -19,7 +19,12 @@ class _TelaEsquecerSenhaViewState extends State<TelaEsquecerSenhaView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Recuperar Senha'),
+        title: Text(
+          'Recuperar Senha',
+          style: TextStyle(
+            color: Colors.blue,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -27,9 +32,9 @@ class _TelaEsquecerSenhaViewState extends State<TelaEsquecerSenhaView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-                    'lib/imagens/password.jpg',
-                    fit: BoxFit.contain,
-                  ),
+              'lib/imagens/password.jpg',
+              fit: BoxFit.contain,
+            ),
             SizedBox(height: 20),
             TextField(
               controller: _emailController,
