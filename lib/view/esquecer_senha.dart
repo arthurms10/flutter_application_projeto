@@ -32,7 +32,7 @@ class _TelaEsquecerSenhaViewState extends State<TelaEsquecerSenhaView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'lib/imagens/password.jpg',
+              'lib/imagens/esqsenha.png',
               fit: BoxFit.contain,
             ),
             SizedBox(height: 20),

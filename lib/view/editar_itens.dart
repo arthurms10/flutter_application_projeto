@@ -20,7 +20,7 @@ class _TelaEditarItensViewState extends State<TelaEditarItensView> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Editar Itens - Lista (nome)',
+          'Editar Itens-Lista(nome)',
           style: TextStyle(
             color: Colors.blue,
           ),
@@ -115,7 +115,7 @@ class _TelaEditarItensViewState extends State<TelaEditarItensView> {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  'listas',
+                  'itens',
                 );
               },
               child: Text('Salvar itens'),

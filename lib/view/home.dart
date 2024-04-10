@@ -20,6 +20,7 @@ class _TelaHomeViewState extends State<TelaHomeView> {
             color: Colors.blue,
           ),
         ),
+        automaticallyImplyLeading: false, // Definindo para false para remover a seta de voltar
       ),
       body: Center(
         child: Column(
@@ -39,7 +40,7 @@ class _TelaHomeViewState extends State<TelaHomeView> {
               },
               child: Text('Criar Nova Lista de Compras'),
             ),
-            SizedBox(height: 20), // Espaçamento entre os botões
+            SizedBox(height: 20), 
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(
@@ -49,7 +50,7 @@ class _TelaHomeViewState extends State<TelaHomeView> {
               },
               child: Text('Acessar Listas de Compras'),
             ),
-            SizedBox(height: 20), // Espaçamento entre os botões
+            SizedBox(height: 20), 
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(

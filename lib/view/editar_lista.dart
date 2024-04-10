@@ -36,6 +36,10 @@ class _TelaEditarListaViewState extends State<TelaEditarListaView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'lib/imagens/list.png',
+              fit: BoxFit.contain,
+            ),
             TextField(
               controller: _nomeController,
               decoration: InputDecoration(

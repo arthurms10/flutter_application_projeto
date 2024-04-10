@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class TelaCadastrarListaView extends StatefulWidget {
@@ -34,6 +36,10 @@ class _TelaCadastrarListaViewState extends State<TelaCadastrarListaView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'lib/imagens/list.png',
+              fit: BoxFit.contain,
+            ),
             TextField(
               controller: _nomeController,
               decoration: InputDecoration(

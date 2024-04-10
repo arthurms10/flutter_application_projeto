@@ -20,12 +20,13 @@ class _TelaLoginViewState extends State<TelaLoginView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Login',
+          'Tela Login',
           style: TextStyle(
             color: Colors.blue,
           ),
           textAlign: TextAlign.center,
         ),
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -90,7 +91,7 @@ class _TelaLoginViewState extends State<TelaLoginView> {
                     Navigator.pushNamed(
                       context,
                       'esquecer_senha',
-                    );// Ação para o botão de recuperar senha
+                    ); // Ação para o botão de recuperar senha
                   },
                   child: const Text('Recuperar Senha'),
                 ),
@@ -109,8 +110,7 @@ class _TelaLoginViewState extends State<TelaLoginView> {
                 TextButton(
                   onPressed: () {
                     // Ação para o botão de cadastrar
-                    Navigator.pushNamed(context,
-                     'cadastro');
+                    Navigator.pushNamed(context, 'cadastro');
                   },
                   child: const Text('Cadastrar'),
                 ),

@@ -51,7 +51,7 @@ class _TelaItensViewState extends State<TelaItensView> {
                   ),
                   style: TextStyle(color: Colors.black),
                 )
-              : Text('Itens - Lista (nome)',
+              : Text('Itens-Lista(nome)',
                   style: TextStyle(
                     color: Colors.blue,
                   )

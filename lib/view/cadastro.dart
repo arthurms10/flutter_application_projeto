@@ -68,7 +68,7 @@ class _TelaCadastroViewState extends State<TelaCadastroView> {
               margin: EdgeInsets.only(
                   bottom: 20.0), // Defina a margem inferior aqui
               child: SizedBox(
-                height: 80,
+                height: 200,
                 child: Image.asset(
                   'lib/imagens/img2.jpg',
                   fit: BoxFit.contain,
