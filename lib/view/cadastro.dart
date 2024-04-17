@@ -32,12 +32,11 @@ class _TelaCadastroViewState extends State<TelaCadastroView> {
       _showSnackBar('As senhas não coincidem.');
       return;
     }
-    if (email != emailValido) {
+    if (!emailValido) {
       _showSnackBar('O E-mail não possui o formato correto.');
+      return;
     }
-    // Aqui você pode adicionar lógica para processar os dados do formulário, como realizar o cadastro.
-
-    // Resetar os campos após o envio bem-sucedido ou falha
+   
     _emailController.clear();
     _passwordController.clear();
     _confirmPasswordController.clear();
@@ -61,46 +60,67 @@ class _TelaCadastroViewState extends State<TelaCadastroView> {
         ),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              margin: EdgeInsets.only(
-                  bottom: 20.0), // Defina a margem inferior aqui
-              child: SizedBox(
-                height: 200,
-                child: Image.asset(
-                  'lib/imagens/img2.jpg',
-                  fit: BoxFit.contain,
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.only(
+                    bottom: 20.0), 
+                child: SizedBox(
+                  height: 150,
+                  child: Image.asset(
+                    'lib/imagens/img2.jpg',
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
-            ),
-            TextField(
-              controller: _emailController,
-              decoration: InputDecoration(
-                labelText: 'Email',
+              SizedBox(height: 10),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: TextFormField(
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
               ),
-            ),
-            TextField(
-              controller: _passwordController,
-              decoration: InputDecoration(
-                labelText: 'Senha',
+              SizedBox(height: 10),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: TextFormField(
+                  controller: _passwordController,
+                  decoration: InputDecoration(
+                    labelText: 'Senha',
+                    border: OutlineInputBorder(),
+                  ),
+                  obscureText: true,
+                ),
               ),
-              obscureText: true,
-            ),
-            TextField(
-              controller: _confirmPasswordController,
-              decoration: InputDecoration(
-                labelText: 'Confirmar Senha',
+              SizedBox(height: 10),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: TextFormField(
+                  controller: _confirmPasswordController,
+                  decoration: InputDecoration(
+                    labelText: 'Confirmar Senha',
+                    border: OutlineInputBorder(),
+                  ),
+                  obscureText: true,
+                ),
               ),
-              obscureText: true,
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _validateForm,
-              child: Text('Cadastrar'),
-            ),
-          ],
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                   _validateForm;
+                    Navigator.pushNamed(context, 'login');
+                  },
+                child: Text('Cadastrar'),
+              ),
+            ],
+          ),
         ),
       ),
     );
